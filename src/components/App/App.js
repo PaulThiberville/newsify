@@ -8,6 +8,7 @@ import logo from "../../newsify.png";
 function App() {
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let index = 0;
@@ -22,7 +23,8 @@ function App() {
   return (
     <>
       <img src={logo} alt="Newsify" className={style.img}></img>
-      <Search setResults={setResults} />
+      <Search setResults={setResults} setLoading={setLoading} />
+      {loading === true && "Loading..."}
       {cards}
     </>
   );
