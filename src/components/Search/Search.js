@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from "./Search.module.scss";
 
 export default function Search({ setResults }) {
   const baseUrl = "https://thiberville-paul-newsify-api.herokuapp.com";
@@ -18,19 +19,29 @@ export default function Search({ setResults }) {
   };
 
   return (
-    <div>
-      <input type="text" onChange={(e) => setInput(e.target.value)}></input>
-      <select
-        name="from"
-        id="from-select"
-        onChange={(e) => setFrom(e.target.value)}
-      >
-        <option value="">Selectionnez une source</option>
-        <option value="les_echos">Les Echos</option>
-        <option value="l_humanite">L'humanité</option>
-        <option value="liberation">Liberation</option>
-      </select>
-      <button onClick={() => handleSearch()}>Search</button>
-    </div>
+    <>
+      <div className={style.container}>
+        <select
+          className={style.select}
+          name="from"
+          id="from-select"
+          onChange={(e) => setFrom(e.target.value)}
+        >
+          <option value="">Select</option>
+          <option value="les_echos">Les Echos</option>
+          <option value="l_humanite">L'humanité</option>
+          <option value="liberation">Liberation</option>
+        </select>
+        <input
+          className={style.search}
+          type="text"
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Rechercher..."
+        ></input>
+      </div>
+      <button onClick={() => handleSearch()} className={style.button}>
+        Search
+      </button>
+    </>
   );
 }

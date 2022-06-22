@@ -1,12 +1,14 @@
 import React from "react";
-import "./Card.module.scss";
+import style from "./Card.module.scss";
 
 function Card({ result }) {
   return (
-    <a href={result.url}>
-      <img src={result.photoUrl} alt=""></img>
-      <h2>{result.title}</h2>
-      <p>{result.description}</p>
+    <a href={result.url} className={style.container}>
+      <img src={result.photoUrl} alt="" className={style.image}></img>
+      <div>
+        <h2 className={style.title}>{result.title}</h2>
+        <p className={style.description}>{result.description}</p>
+      </div>
     </a>
   );
 }

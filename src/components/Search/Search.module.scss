@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.search {
+  flex-grow: 7;
+}
+
+.select {
+  flex-grow: 3;
+}
+
+.search,
+.select {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+}
+
+.button {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #1da1f2;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
