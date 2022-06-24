@@ -4,11 +4,16 @@ import Search from "../Search/Search";
 import "./App.module.scss";
 import style from "./App.module.scss";
 import logo from "../../newsify.png";
+import SkeletonArticle from "../../Skeletons/SkeletonArticle";
 
 function App() {
   const [results, setResults] = useState([]);
   const [cards, setCards] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8].map((index) => {
+    return <SkeletonArticle key={index} />;
+  });
 
   useEffect(() => {
     let index = 0;
@@ -24,8 +29,8 @@ function App() {
     <>
       <img src={logo} alt="Newsify" className={style.img}></img>
       <Search setResults={setResults} setLoading={setLoading} />
-      {loading === true && "Loading..."}
-      {cards}
+      {loading === true && skeletons}
+      {loading === false && cards}
     </>
   );
 }
