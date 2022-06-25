@@ -16,6 +16,7 @@ function App() {
   });
 
   useEffect(() => {
+    if (results === "No result") return;
     let index = 0;
     setCards(
       results.map((result) => {
@@ -31,6 +32,7 @@ function App() {
       <Search setResults={setResults} setLoading={setLoading} />
       {loading === true && skeletons}
       {loading === false && cards}
+      {loading === false && results === "No result" && "No result..."}
     </>
   );
 }

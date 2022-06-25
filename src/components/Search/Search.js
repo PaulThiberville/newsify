@@ -15,6 +15,7 @@ export default function Search({ setResults, setLoading }) {
         setResults(await response.json());
       }
     } catch (error) {
+      setResults("No result");
       console.log(error);
     }
     setLoading(false);
